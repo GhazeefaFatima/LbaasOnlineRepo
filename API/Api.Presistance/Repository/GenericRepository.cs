@@ -12,6 +12,10 @@ namespace Api.Presistence.Repository
 {
     public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
+        public GenericRepository()
+        {
+                
+        }
         public Task<T> Add(T entity)
         {
             throw new NotImplementedException();

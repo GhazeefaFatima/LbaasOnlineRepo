@@ -1,4 +1,5 @@
-﻿using Dapper;
+﻿using Api.Presistance.Repository;
+using Dapper;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -8,7 +9,7 @@ using System.Text;
 
 namespace Api.Presistence.Repository
 {
-    public class BaseRepository
+    public class BaseRepository<T>:IBaseRepository<T>
     {
         protected T QueryFirstOrDefault<T>(string sql, object parameters = null)
         {

@@ -1,0 +1,9 @@
+E:\Projects\Client\Libaas Online\Project\API\Api.Domain\bin\Debug\netstandard2.0\Api.Domain.deps.json
+E:\Projects\Client\Libaas Online\Project\API\Api.Domain\bin\Debug\netstandard2.0\Api.Domain.dll
+E:\Projects\Client\Libaas Online\Project\API\Api.Domain\bin\Debug\netstandard2.0\Api.Domain.pdb
+E:\Projects\Client\Libaas Online\Project\API\Api.Domain\obj\Debug\netstandard2.0\Api.Domain.csprojAssemblyReference.cache
+E:\Projects\Client\Libaas Online\Project\API\Api.Domain\obj\Debug\netstandard2.0\Api.Domain.AssemblyInfoInputs.cache
+E:\Projects\Client\Libaas Online\Project\API\Api.Domain\obj\Debug\netstandard2.0\Api.Domain.AssemblyInfo.cs
+E:\Projects\Client\Libaas Online\Project\API\Api.Domain\obj\Debug\netstandard2.0\Api.Domain.csproj.CoreCompileInputs.cache
+E:\Projects\Client\Libaas Online\Project\API\Api.Domain\obj\Debug\netstandard2.0\Api.Domain.dll
+E:\Projects\Client\Libaas Online\Project\API\Api.Domain\obj\Debug\netstandard2.0\Api.Domain.pdb

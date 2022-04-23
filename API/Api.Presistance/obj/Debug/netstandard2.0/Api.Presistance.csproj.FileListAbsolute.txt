@@ -3,3 +3,4 @@ E:\Projects\Client\Libaas Online\Project\API\Api.Presistance\bin\Debug\netstanda
 E:\Projects\Client\Libaas Online\Project\API\Api.Presistance\obj\Debug\netstandard2.0\Api.Presistance.csprojAssemblyReference.cache
 E:\Projects\Client\Libaas Online\Project\API\Api.Presistance\obj\Debug\netstandard2.0\Api.Presistance.AssemblyInfoInputs.cache
 E:\Projects\Client\Libaas Online\Project\API\Api.Presistance\obj\Debug\netstandard2.0\Api.Presistance.AssemblyInfo.cs
+E:\Projects\Client\Libaas Online\Project\API\Api.Presistance\obj\Debug\netstandard2.0\Api.Presistance.csproj.CoreCompileInputs.cache
