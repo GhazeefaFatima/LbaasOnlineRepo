@@ -1,16 +1,28 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Api.Application.Dto;
+using Api.Application.Implementation;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Api.Application.Interface;
 
 namespace Api.Controllers
 {
-    public class CategoryController : Controller
+    [Route("api/[controller]")]
+    [ApiController]
+    public class CategoryController : ControllerBase
     {
-        public IActionResult Index()
+        private readonly ICategoryService _service;
+        public CategoryController(ICategoryService service)
         {
-            return View();
+            _service = service;
+        }
+
+        [HttpGet]
+        public Task <IEnumerable<Category>> Get()
+        {
+           return _service.GetAll();
         }
     }
 }

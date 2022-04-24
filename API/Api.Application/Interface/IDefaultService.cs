@@ -11,7 +11,7 @@ namespace Api.Application.Interface
         Task<T> Update(T o);
         Task<T> Delete(T o);
 
-        Task<List<T>> GetAll();
+        Task<IEnumerable<T>> GetAll();
 
         Task<T> GetById(Int64 id);
         Task<List<T>> GetBetweenDateRange(DateTime start, DateTime end);

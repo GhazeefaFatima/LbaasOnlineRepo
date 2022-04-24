@@ -4,3 +4,11 @@ E:\Projects\Client\Libaas Online\Project\API\Api.Presistance\obj\Debug\netstanda
 E:\Projects\Client\Libaas Online\Project\API\Api.Presistance\obj\Debug\netstandard2.0\Api.Presistance.AssemblyInfoInputs.cache
 E:\Projects\Client\Libaas Online\Project\API\Api.Presistance\obj\Debug\netstandard2.0\Api.Presistance.AssemblyInfo.cs
 E:\Projects\Client\Libaas Online\Project\API\Api.Presistance\obj\Debug\netstandard2.0\Api.Presistance.csproj.CoreCompileInputs.cache
+E:\Projects\Client\Libaas Online\Project\API\Api.Presistance\bin\Debug\netstandard2.0\Api.Presistance.deps.json
+E:\Projects\Client\Libaas Online\Project\API\Api.Presistance\bin\Debug\netstandard2.0\Api.Presistance.dll
+E:\Projects\Client\Libaas Online\Project\API\Api.Presistance\bin\Debug\netstandard2.0\Api.Presistance.pdb
+E:\Projects\Client\Libaas Online\Project\API\Api.Presistance\bin\Debug\netstandard2.0\Api.Application.pdb
+E:\Projects\Client\Libaas Online\Project\API\Api.Presistance\bin\Debug\netstandard2.0\Api.Domain.pdb
+E:\Projects\Client\Libaas Online\Project\API\Api.Presistance\obj\Debug\netstandard2.0\Api.Presistance.csproj.CopyComplete
+E:\Projects\Client\Libaas Online\Project\API\Api.Presistance\obj\Debug\netstandard2.0\Api.Presistance.dll
+E:\Projects\Client\Libaas Online\Project\API\Api.Presistance\obj\Debug\netstandard2.0\Api.Presistance.pdb

@@ -9,5 +9,6 @@ namespace Api.Presistance.Repository.Features
 {
     public class CategoryRepository : GenericRepository<Category>, ICategoryRepository
     {
+      
     }
 }

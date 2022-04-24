@@ -1,5 +1,6 @@
 ﻿using Api.Application.Presistance;
 using Api.Domain;
+using Api.Presistance;
 using Dapper;
 using System;
 using System.Collections.Generic;
@@ -12,10 +13,11 @@ namespace Api.Presistence.Repository
 {
     public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
-        public GenericRepository()
-        {
-                
-        }
+        //public readonly IConnectionString _conn;
+        //public GenericRepository(IConnectionString conn)
+        //{
+        //    _conn = conn;
+        //}
         public Task<T> Add(T entity)
         {
             throw new NotImplementedException();
@@ -31,9 +33,10 @@ namespace Api.Presistence.Repository
             throw new NotImplementedException();
         }
 
-        public async Task<T> Get(string tablename, int id)
+        public async Task<T> Get(string tablename, long id)
         {
-            using (IDbConnection cnn = new SqlConnection(ConnectionString.GetConnectionString("")))
+          
+            using (IDbConnection cnn = new SqlConnection(ConnectionString.GetConnectionString()))
             {
                 var p = new DynamicParameters();
                 p.Add("@Id", id);
@@ -46,12 +49,11 @@ namespace Api.Presistence.Repository
 
         public async Task<IEnumerable<T>> GetAll(string tablename)
         {
-            using (IDbConnection cnn = new SqlConnection(ConnectionString.GetConnectionString("Local_Db")))
+            using (IDbConnection cnn = new SqlConnection(ConnectionString.GetConnectionString()))
             {
                 string sql = $"select * from {tablename}";
-                var dataList =  cnn.QueryAsync<T>(sql);
+                var dataList = cnn.QueryAsync<T>(sql);
                 return  dataList.Result;
-           
             }
         }
 

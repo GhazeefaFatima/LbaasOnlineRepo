@@ -15,5 +15,6 @@ namespace Api.Domain
         public bool IsOnSale { get; set; }
         public decimal Price { get; set; }
 
+
     }
 }
