@@ -1,4 +1,5 @@
-﻿using Api.Presistance.Repository;
+﻿using Api.Presistance;
+using Api.Presistance.Repository;
 using Dapper;
 using System;
 using System.Collections.Generic;
@@ -9,25 +10,14 @@ using System.Text;
 
 namespace Api.Presistence.Repository
 {
-    public class BaseRepository<T>:IBaseRepository<T>
+    public class BaseRepository<T> : IBaseRepository<T> where T : class
     {
-        protected T QueryFirstOrDefault<T>(string sql, object parameters = null)
+        public readonly IConnectionString _conn;
+        public BaseRepository(IConnectionString conn)
         {
-            using (var connection = CreateConnection())
-            {
-                return connection.QueryFirstOrDefault<T>(sql, parameters);
-            }
+            _conn = conn;
         }
-
-        protected List<T> Query<T>(string sql, object parameters = null)
-        {
-            using (var connection = CreateConnection())
-            {
-                return connection.Query<T>(sql, parameters).ToList();
-            }
-        }
-
-        protected int Execute(string sql, object parameters = null)
+        public int Execute(string sql, object parameters = null)
         {
             using (var connection = CreateConnection())
             {
@@ -35,13 +25,26 @@ namespace Api.Presistence.Repository
             }
         }
 
-        // Other Helpers...
-
+        public List<T> Query<T>(string sql, object parameters = null)
+        {
+            using (var connection = CreateConnection())
+            {
+                return connection.Query<T>(sql, parameters).ToList();
+            }
+        }
+        public T QueryFirstOrDefault<T>(string sql, object parameters = null)
+        {
+                using (var connection = CreateConnection())
+                {
+                    return connection.QueryFirstOrDefault<T>(sql, parameters);
+                }
+        }
         private IDbConnection CreateConnection()
         {
-            var connection = new SqlConnection(ConnectionString.GetConnectionString(""));
+            var connection = new SqlConnection(_conn.GetConnectionString());
             // Properly initialize your connection here.
             return connection;
         }
+
     }
 }

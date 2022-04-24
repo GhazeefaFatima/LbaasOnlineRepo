@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Api.Application.Interface
 {
-    interface ICategoryService : IDefaultService<Category>
+    public interface ICategoryService : IDefaultService<Category>
     {
     }
 }
