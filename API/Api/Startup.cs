@@ -30,6 +30,14 @@ namespace Api
             services.ConfigureApplicationServices();
             services.ConfigurePersistenceServices();
             services.AddControllers();
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAnyOrigin",
+                    builder => builder
+                    .AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader());
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -39,7 +47,14 @@ namespace Api
             {
                 app.UseDeveloperExceptionPage();
             }
+            app.UseCors("AllowAnyOrigin");
 
+            //app.UseMvc(routes =>
+            //{
+            //    routes.MapRoute(
+            //        name: "default",
+            //        template: "{controller=Home}/{action=Index}/{id?}");
+            //});
             app.UseHttpsRedirection();
 
             app.UseRouting();
