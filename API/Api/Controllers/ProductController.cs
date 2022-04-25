@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Api.Application.Dto;
+using Api.Application.Interface;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,11 +8,19 @@ using System.Threading.Tasks;
 
 namespace Api.Controllers
 {
-    public class ProductController : Controller
+    [Route("api/[controller]")]
+    [ApiController]
+    public class ProductController : ControllerBase
     {
-        public IActionResult Index()
+        private readonly ICategoryService _service;
+        public ProductController(ICategoryService service)
         {
-            return View();
+            _service = service;
+        }
+        [HttpGet]
+        public Task<IEnumerable<Category>> Get()
+        {
+            return _service.GetAll();
         }
     }
 }
