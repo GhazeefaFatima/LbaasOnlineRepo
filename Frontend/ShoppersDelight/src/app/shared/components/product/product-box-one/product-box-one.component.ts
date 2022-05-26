@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { QuickViewComponent } from "../../modal/quick-view/quick-view.component";
 import { CartModalComponent } from "../../modal/cart-modal/cart-modal.component";
-import { Product } from "../../../classes/product";
+import { Product, ProductList } from "../../../classes/product";
 import { ProductService } from "../../../services/product.service";
 
 @Component({
@@ -11,7 +11,7 @@ import { ProductService } from "../../../services/product.service";
 })
 export class ProductBoxOneComponent implements OnInit {
 
-  @Input() product: Product;
+  @Input() product: ProductList;
   @Input() currency: any = this.productService.Currency; // Default Currency 
   @Input() thumbnail: boolean = false; // Default False 
   @Input() onHowerChangeImage: boolean = false; // Default False
@@ -26,6 +26,7 @@ export class ProductBoxOneComponent implements OnInit {
   constructor(private productService: ProductService) { }
 
   ngOnInit(): void {
+    debugger
     if(this.loader) {
       setTimeout(() => { this.loader = false; }, 2000); // Skeleton Loader
     }

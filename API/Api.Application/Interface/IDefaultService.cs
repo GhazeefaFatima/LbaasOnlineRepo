@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Api.Applicatio.Common;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
@@ -7,9 +8,9 @@ namespace Api.Application.Interface
 {
     public interface IDefaultService<T>
     {
-        Task<T> Create(T o);
-        Task<T> Update(T o);
-        Task<T> Delete(T o);
+        Task<ViewResponseModal<T>> Create(T o);
+        Task<ViewResponseModal<T>> Update(T o);
+        Task<bool> Delete(int o);
 
         Task<IEnumerable<T>> GetAll();
 

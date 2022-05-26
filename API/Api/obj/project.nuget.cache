@@ -1,10 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "XNac7r6VLyLfolhlJKVyzbUJTJA7sCYDrqAfnt44Syr7FrDgtGVyxRW3IPnlZRKaDCSepYw1nVgwMr9g3lp+yA==",
+  "dgSpecHash": "Pwns2mHXWA/1n/mdU2t8SoiN6CcV0c1/4Ct1mPzWVlu3rHWGKl67ZA36pSNVK4DYOIcopHpNNxXWaU8UVrh3Dw==",
   "success": true,
   "projectFilePath": "E:\\Projects\\Client\\Libaas Online\\Project\\API\\Api\\Api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\GhAzeefA FAtimA\\.nuget\\packages\\dapper\\2.0.123\\dapper.2.0.123.nupkg.sha512",
+    "C:\\Users\\GhAzeefA FAtimA\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\3.1.24\\microsoft.aspnetcore.jsonpatch.3.1.24.nupkg.sha512",
+    "C:\\Users\\GhAzeefA FAtimA\\.nuget\\packages\\microsoft.aspnetcore.mvc.newtonsoftjson\\3.1.24\\microsoft.aspnetcore.mvc.newtonsoftjson.3.1.24.nupkg.sha512",
+    "C:\\Users\\GhAzeefA FAtimA\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\GhAzeefA FAtimA\\.nuget\\packages\\microsoft.extensions.configuration\\6.0.0\\microsoft.extensions.configuration.6.0.0.nupkg.sha512",
     "C:\\Users\\GhAzeefA FAtimA\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\6.0.0\\microsoft.extensions.configuration.abstractions.6.0.0.nupkg.sha512",
     "C:\\Users\\GhAzeefA FAtimA\\.nuget\\packages\\microsoft.extensions.configuration.binder\\6.0.0\\microsoft.extensions.configuration.binder.6.0.0.nupkg.sha512",
@@ -17,6 +20,8 @@
     "C:\\Users\\GhAzeefA FAtimA\\.nuget\\packages\\microsoft.extensions.primitives\\6.0.0\\microsoft.extensions.primitives.6.0.0.nupkg.sha512",
     "C:\\Users\\GhAzeefA FAtimA\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\GhAzeefA FAtimA\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
+    "C:\\Users\\GhAzeefA FAtimA\\.nuget\\packages\\newtonsoft.json\\12.0.2\\newtonsoft.json.12.0.2.nupkg.sha512",
+    "C:\\Users\\GhAzeefA FAtimA\\.nuget\\packages\\newtonsoft.json.bson\\1.0.2\\newtonsoft.json.bson.1.0.2.nupkg.sha512",
     "C:\\Users\\GhAzeefA FAtimA\\.nuget\\packages\\runtime.native.system.data.sqlclient.sni\\4.7.0\\runtime.native.system.data.sqlclient.sni.4.7.0.nupkg.sha512",
     "C:\\Users\\GhAzeefA FAtimA\\.nuget\\packages\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "C:\\Users\\GhAzeefA FAtimA\\.nuget\\packages\\runtime.win-x64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",

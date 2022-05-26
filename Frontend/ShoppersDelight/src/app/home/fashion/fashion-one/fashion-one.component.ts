@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductSlider } from '../../../shared/data/slider';
-import { Product } from '../../../shared/classes/product';
+import { Product, ProductList } from '../../../shared/classes/product';
 import { ProductService } from '../../../shared/services/product.service';
 
 @Component({
@@ -10,19 +10,24 @@ import { ProductService } from '../../../shared/services/product.service';
 })
 export class FashionOneComponent implements OnInit {
 
-  public products: Product[] = [];
+  public products: ProductList[] = [];
   public productCollections: any[] = [];
   currentYear: number = new Date().getFullYear();
   constructor(public productService: ProductService) {
     this.productService.getProducts.subscribe(response => {
-      this.products = response.filter(item => item.type == 'fashion');
+
+     debugger
+      this.products = response;
+    // console.log("dhDAGgdaFDdhg",this.products)
+     console.log("dghadjhffsdfjsdkgsgkjskg", this.products[2])
+     
       // Get Product Collection
-      this.products.filter((item) => {
-        item.collection.filter((collection) => {
-          const index = this.productCollections.indexOf(collection);
-          if (index === -1) this.productCollections.push(collection);
-        })
-      })
+      // this.products.filter((item) => {
+      //   item.collection.filter((collection) => {
+      //     const index = this.productCollections.indexOf(collection);
+      //     if (index === -1) this.productCollections.push(collection);
+      //   })
+      // })
     });
   }
 
@@ -97,9 +102,9 @@ export class FashionOneComponent implements OnInit {
   // Product Tab collection
   getCollectionProducts(collection) {
     return this.products.filter((item) => {
-      if (item.collection.find(i => i === collection)) {
-        return item
-      }
+      // if (item.collection.find(i => i === collection)) {
+      //   return item
+      // }
     })
   }
   

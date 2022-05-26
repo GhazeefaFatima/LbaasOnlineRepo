@@ -1,4 +1,5 @@
-﻿using Api.Application.Dto;
+﻿using Api.Applicatio.Common;
+using Api.Application.Dto;
 using Api.Application.Interface;
 using Api.Application.Presistance;
 using System;
@@ -90,6 +91,21 @@ namespace Api.Application.Implementation
 
                 throw ex;
             }
+        }
+
+        Task<ViewResponseModal<Category>> IDefaultService<Category>.Create(Category o)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<ViewResponseModal<Category>> IDefaultService<Category>.Update(Category o)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<bool> Delete(int o)
+        {
+            throw new NotImplementedException();
         }
     }
 }

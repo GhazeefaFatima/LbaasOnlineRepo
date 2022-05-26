@@ -21,6 +21,7 @@ namespace Api.Presistence
             services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
             services.AddScoped<IProductRepository, ProductRepository>();
             services.AddScoped<ICategoryRepository, CategoryRepository>();
+            services.AddScoped<ILookupValueRepository, LookupRepository>();
 
             return services;
         }

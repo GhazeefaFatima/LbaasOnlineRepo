@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using Api.Applicatio.Common;
+using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Threading.Tasks;
 
@@ -8,9 +10,9 @@ namespace Api.Application.Presistance
     {
         Task<T> Get(string tablename, long id);
         Task<IEnumerable<T>> GetAll(string tablename);
-        Task<T> Add(T entity);
+        Task<ViewResponseModal<T>> Add(T entity);
         Task<bool> Exists(int id);
-        Task Update(T entity);
-        Task Delete(T entity);
+        Task< ViewResponseModal<T>> Update(T entity);
+        Task<bool> Delete(int id, string tablename);
     }
 }

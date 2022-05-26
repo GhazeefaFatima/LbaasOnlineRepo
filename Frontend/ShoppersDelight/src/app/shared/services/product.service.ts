@@ -16,6 +16,7 @@ const state = {
   providedIn: 'root'
 })
 export class ProductService {
+  readonly APIUrl="https://localhost:44334/api/"
 
   public Currency = { name: 'Dollar', currency: 'USD', price: 1 } // Default Currency
   public OpenCart: boolean = false;
@@ -32,13 +33,18 @@ export class ProductService {
 
   // Product
   private get products(): Observable<Product[]> {
-    this.Products = this.http.get<Product[]>('assets/data/products.json').pipe(map(data => data));
-    this.Products.subscribe(next => { localStorage['products'] = JSON.stringify(next) });
-    return this.Products = this.Products.pipe(startWith(JSON.parse(localStorage['products'] || '[]')));
+    // this.Products = this.http.get<Product[]>('assets/data/products.json').pipe(map(data => data));
+    // this.Products.subscribe(next => { localStorage['products'] = JSON.stringify(next) });
+    // return this.Products = this.Products.pipe(startWith(JSON.parse(localStorage['products'] || '[]')));
+
+    // debugger;
+    return this.http.get<any>(this.APIUrl+"Product")
+
   }
 
   // Get Products
   public get getProducts(): Observable<Product[]> {
+   // debugger
     return this.products;
   }
 
