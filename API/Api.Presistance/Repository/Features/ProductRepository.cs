@@ -22,8 +22,10 @@ namespace Api.Presistence.Repository.Features
 
             using (IDbConnection cnn = new SqlConnection(ConnectionString.GetConnectionString()))
             {
-                string sql = $"select * from vw_productdetail  where  is_main_page={is_main_page} and is_new_product= {is_new_product} and  is_best_selling={is_best_selling} " +
-                    $"and is_featured_product={is_featured_product} and is_on_sale={is_on_sale}";
+               // cnn.Execute("dbo.spPerson_InsertSet", p, commandType: CommandType.StoredProcedure);
+                //string sql = $"select * from vw_productdetail  where  is_main_page={is_main_page} and is_new_product= {is_new_product} and  is_best_selling={is_best_selling} " +
+                //    $"and is_featured_product={is_featured_product} and is_on_sale={is_on_sale}";     
+                string sql = $"EXEC [dbo].[usp_GetAllProducts]";
                 var data = await cnn.QueryAsync<ProductList>(sql); 
                 return data;
 

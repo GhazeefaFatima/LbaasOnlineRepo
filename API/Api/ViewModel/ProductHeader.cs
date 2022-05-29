@@ -10,7 +10,7 @@ namespace Api.ViewModel
 
         public ProductHeader()
         {
-            ProductDetail = new List<ProductDetail>();
+           // ProductDetail = new List<ProductDetail>();
         }
 
 
@@ -38,16 +38,16 @@ namespace Api.ViewModel
         public string product_img { get; set; }
 
 
-        public Boolean is_main_page { get; set; }
-        public Boolean is_new_product { get; set; }
-        public Boolean is_best_selling { get; set; }
-        public Boolean is_featured_product { get; set; }
-        public Boolean is_on_sale { get; set; }
-        public decimal price { get; set; }
+        //public Boolean is_main_page { get; set; }
+        //public Boolean is_new_product { get; set; }
+        //public Boolean is_best_selling { get; set; }
+        //public Boolean is_featured_product { get; set; }
+        //public Boolean is_on_sale { get; set; }
+        //public decimal price { get; set; }
 
       
        
-        public List<ProductDetail> ProductDetail { get; set; }
+        public List<ProductDetail> images { get; set; }
         public List<ProductDetail> variants { get; set; }
 
     }
