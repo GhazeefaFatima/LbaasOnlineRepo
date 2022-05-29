@@ -1,4 +1,4 @@
-USE [ECommerce]
+USE [LibaasOnline]
 GO
 /****** Object:  Table [dbo].[Product]    Script Date: 6/14/2021 12:06:25 AM ******/
 SET ANSI_NULLS ON
@@ -22,7 +22,7 @@ CREATE TABLE [dbo].[Product](
 	[Picture3] [varchar](500) NULL,
 	[Picture4] [varchar](500) NULL,
 	[Picture5] [varchar](500) NULL,
-	[UnitPrice] [decimal](18, 0) NOT NULL,
+	[UnitPrice] [decimal](18, 0)  NULL,
 	[OldPrice] [decimal](18, 0) NULL,
 	[Discount] [decimal](18, 0) NULL,
 	[UnitInStock] [int] NULL,
@@ -45,7 +45,7 @@ GO
 CREATE TABLE [dbo].[ProductAttribute](
 	[ProductId] [bigint] NOT NULL,
 	[AttributeId] [int] NOT NULL,
-	[AttributeValue] [varchar](250) NULL
+	[AttributeValue] [varchar](250) NULL,
 	[created_by] [int] NULL,
 	[created_date] [datetime] NULL default(GetDate()),
 	[is_deleted] [bit] NULL,
@@ -91,18 +91,18 @@ CREATE TABLE [dbo].[ProductCategory](
 GO
 
 SET IDENTITY_INSERT [dbo].[Product] ON 
-INSERT [dbo].[Product] ([ProductId], [ProdCatId], [ProdName], [ProdDescription]) VALUES (1, 1, N'BMW', N'BMW CAR')
-INSERT [dbo].[Product] ([ProductId], [ProdCatId], [ProdName], [ProdDescription]) VALUES (2, 1, N'Hyundai', N'Hyundai')
-INSERT [dbo].[Product] ([ProductId], [ProdCatId], [ProdName], [ProdDescription]) VALUES (3, 2, N'Vivo', N'Vivo Mobile')
-INSERT [dbo].[Product] ([ProductId], [ProdCatId], [ProdName], [ProdDescription]) VALUES (4, 2, N'Oppo', N'Oppo Mobile')
-INSERT [dbo].[Product] ([ProductId], [ProdCatId], [ProdName], [ProdDescription]) VALUES (5, 2, N'MI', N'MI Mobile')
-INSERT [dbo].[Product] ([ProductId], [ProdCatId], [ProdName], [ProdDescription]) VALUES (6, 2, N'MI', N'MI Mobile')
-INSERT [dbo].[Product] ([ProductId], [ProdCatId], [ProdName], [ProdDescription]) VALUES (7, 2, N'MI', N'MI Mobile')
-INSERT [dbo].[Product] ([ProductId], [ProdCatId], [ProdName], [ProdDescription]) VALUES (8, 1, N'Hyundai SuV', N'Hyundai')
-INSERT [dbo].[Product] ([ProductId], [ProdCatId], [ProdName], [ProdDescription]) VALUES (9, 1, N'Hyundai i20', N'Hyundai')
-INSERT [dbo].[Product] ([ProductId], [ProdCatId], [ProdName], [ProdDescription]) VALUES (10, 1, N'Hyundai Creta', N'This is Hyundai Creta')
-INSERT [dbo].[Product] ([ProductId], [ProdCatId], [ProdName], [ProdDescription]) VALUES (11, 2, N'Samsung', N'Samsung Mobile')
-INSERT [dbo].[Product] ([ProductId], [ProdCatId], [ProdName], [ProdDescription]) VALUES (12, 2, N'Realone', N'this is realone')
+INSERT [dbo].[Product] ([ProductId], [ProdCatId], [ProdName], [description]) VALUES (1, 1, N'BMW', N'BMW CAR')
+INSERT [dbo].[Product] ([ProductId], [ProdCatId], [ProdName], [description]) VALUES (2, 1, N'Hyundai', N'Hyundai')
+INSERT [dbo].[Product] ([ProductId], [ProdCatId], [ProdName], [description]) VALUES (3, 2, N'Vivo', N'Vivo Mobile')
+INSERT [dbo].[Product] ([ProductId], [ProdCatId], [ProdName], [description]) VALUES (4, 2, N'Oppo', N'Oppo Mobile')
+INSERT [dbo].[Product] ([ProductId], [ProdCatId], [ProdName], [description]) VALUES (5, 2, N'MI', N'MI Mobile')
+INSERT [dbo].[Product] ([ProductId], [ProdCatId], [ProdName], [description]) VALUES (6, 2, N'MI', N'MI Mobile')
+INSERT [dbo].[Product] ([ProductId], [ProdCatId], [ProdName], [description]) VALUES (7, 2, N'MI', N'MI Mobile')
+INSERT [dbo].[Product] ([ProductId], [ProdCatId], [ProdName], [description]) VALUES (8, 1, N'Hyundai SuV', N'Hyundai')
+INSERT [dbo].[Product] ([ProductId], [ProdCatId], [ProdName], [description]) VALUES (9, 1, N'Hyundai i20', N'Hyundai')
+INSERT [dbo].[Product] ([ProductId], [ProdCatId], [ProdName], [description]) VALUES (10, 1, N'Hyundai Creta', N'This is Hyundai Creta')
+INSERT [dbo].[Product] ([ProductId], [ProdCatId], [ProdName], [description]) VALUES (11, 2, N'Samsung', N'Samsung Mobile')
+INSERT [dbo].[Product] ([ProductId], [ProdCatId], [ProdName], [description]) VALUES (12, 2, N'Realone', N'this is realone')
 SET IDENTITY_INSERT [dbo].[Product] OFF
 
 INSERT [dbo].[ProductAttribute] ([ProductId], [AttributeId], [AttributeValue]) VALUES (1, 1, N'Red')
@@ -120,7 +120,7 @@ INSERT [dbo].[ProductAttribute] ([ProductId], [AttributeId], [AttributeValue]) V
 
 SET IDENTITY_INSERT [dbo].[ProductAttributeLookup] ON 
 INSERT [dbo].[ProductAttributeLookup] ([AttributeId], [ProdCatId], [AttributeName]) VALUES (1, 1, N'Color')
-INSERT [dbo].[ProductAttributeLookup] ([AttributeId], [ProdCatId], [AttributeName]) VALUES (2, 1, N'Make')
+INSERT [dbo].[ProductAttributeLookup] ([AttributeId], [ProdCatId], [AttributeName]) VALUES (2, 1, N'Size')
 INSERT [dbo].[ProductAttributeLookup] ([AttributeId], [ProdCatId], [AttributeName]) VALUES (3, 1, N'Model')
 INSERT [dbo].[ProductAttributeLookup] ([AttributeId], [ProdCatId], [AttributeName]) VALUES (4, 2, N'RAM')
 INSERT [dbo].[ProductAttributeLookup] ([AttributeId], [ProdCatId], [AttributeName]) VALUES (5, 2, N'Front Camera')
@@ -136,23 +136,23 @@ SET IDENTITY_INSERT [dbo].[ProductCategory] OFF
 ALTER TABLE [dbo].[Product]  WITH CHECK ADD  CONSTRAINT [FK_Product_ProductCategory] FOREIGN KEY([ProdCatId])
 REFERENCES [dbo].[ProductCategory] ([ProdCatId])
 GO
-ALTER TABLE [dbo].[Product] CHECK CONSTRAINT [FK_Product_ProductCategory]
-GO
-ALTER TABLE [dbo].[ProductAttribute]  WITH CHECK ADD  CONSTRAINT [FK_ProductAttribute_Product] FOREIGN KEY([ProductId])
-REFERENCES [dbo].[Product] ([ProductId])
-GO
-ALTER TABLE [dbo].[ProductAttribute] CHECK CONSTRAINT [FK_ProductAttribute_Product]
-GO
-ALTER TABLE [dbo].[ProductAttribute]  WITH CHECK ADD  CONSTRAINT [FK_ProductAttribute_ProductAttributeLookup] FOREIGN KEY([AttributeId])
-REFERENCES [dbo].[ProductAttributeLookup] ([AttributeId])
-GO
-ALTER TABLE [dbo].[ProductAttribute] CHECK CONSTRAINT [FK_ProductAttribute_ProductAttributeLookup]
-GO
-ALTER TABLE [dbo].[ProductAttributeLookup]  WITH CHECK ADD  CONSTRAINT [FK_ProductAttributeLookup_ProductCategory] FOREIGN KEY([ProdCatId])
-REFERENCES [dbo].[ProductCategory] ([ProdCatId])
-GO
-ALTER TABLE [dbo].[ProductAttributeLookup] CHECK CONSTRAINT [FK_ProductAttributeLookup_ProductCategory]
-GO
+--ALTER TABLE [dbo].[Product] CHECK CONSTRAINT [FK_Product_ProductCategory]
+--GO
+--ALTER TABLE [dbo].[ProductAttribute]  WITH CHECK ADD  CONSTRAINT [FK_ProductAttribute_Product] FOREIGN KEY([ProductId])
+--REFERENCES [dbo].[Product] ([ProductId])
+--GO
+--ALTER TABLE [dbo].[ProductAttribute] CHECK CONSTRAINT [FK_ProductAttribute_Product]
+--GO
+--ALTER TABLE [dbo].[ProductAttribute]  WITH CHECK ADD  CONSTRAINT [FK_ProductAttribute_ProductAttributeLookup] FOREIGN KEY([AttributeId])
+--REFERENCES [dbo].[ProductAttributeLookup] ([AttributeId])
+--GO
+--ALTER TABLE [dbo].[ProductAttribute] CHECK CONSTRAINT [FK_ProductAttribute_ProductAttributeLookup]
+--GO
+--ALTER TABLE [dbo].[ProductAttributeLookup]  WITH CHECK ADD  CONSTRAINT [FK_ProductAttributeLookup_ProductCategory] FOREIGN KEY([ProdCatId])
+--REFERENCES [dbo].[ProductCategory] ([ProdCatId])
+--GO
+--ALTER TABLE [dbo].[ProductAttributeLookup] CHECK CONSTRAINT [FK_ProductAttributeLookup_ProductCategory]
+--GO
 
 --------------------------------------------------------------Product Create----------------------------------------------------------------------
 
@@ -162,12 +162,10 @@ DROP PROC usp_ProductCreate
 END
 GO
 
-if(@ProductId= NULL)
-begin
 CREATE PROCEDURE usp_ProductCreate
-	@ProductId               [bigint] ,
-	@ProdCatId               [int] ,
-	@ProdName                [varchar](250) ,
+	@ProductId               [bigint] NULL,
+	@ProdCatId               [int] NULL,
+	@ProdName                [varchar](250) NULL,
 	@ProdShortDescription    [varchar](max) NULL,
 	@is_main_page            [bit] NULL,
 	@is_new_product          [bit] NULL,
@@ -181,7 +179,7 @@ CREATE PROCEDURE usp_ProductCreate
 	@Picture3                [varchar](500) NULL,
 	@Picture4                [varchar](500) NULL,
 	@Picture5                [varchar](500) NULL,
-	@UnitPrice               [decimal](18, 0) ,
+	@UnitPrice               [decimal](18, 0) NULL ,
 	@OldPrice                [decimal](18, 0) NULL,
 	@Discount                [decimal](18, 0) NULL,
 	@UnitInStock             [int] NULL,
@@ -193,10 +191,14 @@ CREATE PROCEDURE usp_ProductCreate
 	@sizeid                  [int] NULL,
 	@colorid                 [int] NULL,
 	@sizename                [varchar](500) NULL,
-	@colorname               [varchar](500) NULL,
+	@colorname               [varchar](500) NULL
 	
 AS
 BEGIN
+
+
+IF(@ProductId= NULL)
+begin
 INSERT INTO Product  (
 	ProdCatId               ,
 	ProdName                ,
@@ -252,9 +254,7 @@ INSERT INTO Product  (
  
 SET @ProductId = SCOPE_IDENTITY()
  
-
-
- insert into [ProductAttributeLookup](
+ insert into [ProductAttribute](
 	ProductId,
 	AttributeId, 
 	AttributeValue
@@ -262,16 +262,21 @@ SET @ProductId = SCOPE_IDENTITY()
     VALUES (
 	@ProductId              ,
 	@sizeid                 ,
-	@sizename               ,
-	),
+	@sizename               
+	)
+	 insert into [ProductAttribute](
+	ProductId,
+	AttributeId, 
+	AttributeValue
+	)
 	VALUES (
 	@ProductId              ,
 	@colorid                ,
-	@colorname              ,
+	@colorname              
 	)
-	end
+end
 	
-	IF(@ProductId<> NULL and @colorid<> NULL @sizeid<> NULL)
+	IF(@ProductId<> NULL and @colorid<> NULL and @sizeid<> NULL)
 	begin
 	update product 
 	SET 
@@ -301,13 +306,13 @@ SET @ProductId = SCOPE_IDENTITY()
 	updated_date           =  @updated_date
 	where ProductId=@ProductId
 
-	update [ProductAttributeLookup]
+	update [ProductAttribute]
 	set 
 	AttributeId = @sizeid, 
 	AttributeValue =@sizename
 	where ProductId=@ProductId  and AttributeId = @sizeid
 
-	update [ProductAttributeLookup]
+	update [ProductAttribute]
 	set 
 	AttributeId = @colorid, 
 	AttributeValue =@colorname

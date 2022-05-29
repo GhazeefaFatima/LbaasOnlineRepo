@@ -95,9 +95,10 @@ namespace Api.Application.Implementation
         }
 
 
-        public List<ProductList> GetAllProducts()
+        public  IEnumerable<ProductList> GetAllProducts(int is_main_page, int is_new_product, int is_best_selling, int is_featured_product, int is_on_sale)
         {
-            var list = _repo.GetAllProducts();
+
+            IEnumerable<ProductList> list =  _repo.GetAllProducts( is_main_page,  is_new_product,  is_best_selling,  is_featured_product,  is_on_sale).Result;
             return list;
         }
 
