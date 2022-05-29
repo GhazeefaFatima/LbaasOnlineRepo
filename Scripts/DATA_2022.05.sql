@@ -63,3 +63,243 @@ INSERT dbo.collection (collection_id, collection_name, created_by, created_date,
 INSERT dbo.collection (collection_id, collection_name, created_by, created_date, is_deleted) VALUES (6, N'NEW PRODUCTS', 1, GETDATE(), 0)
 end
 SET IDENTITY_INSERT dbo.collection OFF
+
+
+SET IDENTITY_INSERT dbo.products ON
+ IF NOT EXISTS (SELECT * FROM products WHERE product_id =1)
+   BEGIN
+    INSERT dbo.products(product_id, product_name, description, type, sub_category_id, collection_id, category_id, price, sale, discount, stock, new)
+    values(1,'Branded Kurtis', N'Tailor stitched by Libaas Online.
+             Length is 46 inches. Chest is 20 inches. Waist is 18 inches. Hip is 21.5 inches. Shoulder is 14 inches. Sleeves is 22 inches.
+             ','fashion',1,1
+    		 ,2,5000,4500,12,50,1)
+   end
+
+    IF NOT EXISTS (SELECT * FROM products WHERE product_id =2)
+   BEGIN
+    INSERT dbo.products(product_id, product_name, description, type, sub_category_id, collection_id, category_id, price, sale, discount, stock, new)
+    values(2,'Branded Kurtis', N'Tailor stitched by Libaas Online.
+             Length is 46 inches. Chest is 20 inches. Waist is 18 inches. Hip is 21.5 inches. Shoulder is 14 inches. Sleeves is 22 inches.
+             ','fashion',2,2
+    		 ,2,5000,4500,12,50,0)
+   end
+    IF NOT EXISTS (SELECT * FROM products WHERE product_id =3)
+   BEGIN
+    INSERT dbo.products(product_id, product_name, description, type, sub_category_id, collection_id, category_id, price, sale, discount, stock, new)
+    values(3,'Branded Kurtis', N'Tailor stitched by Libaas Online.
+             Length is 46 inches. Chest is 20 inches. Waist is 18 inches. Hip is 21.5 inches. Shoulder is 14 inches. Sleeves is 22 inches.
+             ','fashion',2,3
+    		 ,2,5000,4500,12,50,0)
+   end
+    IF NOT EXISTS (SELECT * FROM products WHERE product_id =4)
+   BEGIN
+    INSERT dbo.products(product_id, product_name, description, type, sub_category_id, collection_id, category_id, price, sale, discount, stock, new)
+    values(4,'Branded Kurtis', N'Tailor stitched by Libaas Online.
+             Length is 46 inches. Chest is 20 inches. Waist is 18 inches. Hip is 21.5 inches. Shoulder is 14 inches. Sleeves is 22 inches.
+             ','fashion',3,2
+    		 ,2,5000,4500,12,50,0)
+   end
+
+    IF NOT EXISTS (SELECT * FROM products WHERE product_id =5)
+   BEGIN
+    INSERT dbo.products(product_id, product_name, description, type, sub_category_id, collection_id, category_id, price, sale, discount, stock, new)
+    values(5,'Branded Kurtis', N'Tailor stitched by Libaas Online.
+             Length is 46 inches. Chest is 20 inches. Waist is 18 inches. Hip is 21.5 inches. Shoulder is 14 inches. Sleeves is 22 inches.
+             ','fashion',2,4
+    		 ,2,5000,4500,12,50,0)
+   end
+       IF NOT EXISTS (SELECT * FROM products WHERE product_id =6)
+   BEGIN
+    INSERT dbo.products(product_id, product_name, description, type, sub_category_id, collection_id, category_id, price, sale, discount, stock, new)
+    values(6,'Branded Kurtis', N'Tailor stitched by Libaas Online.
+             Length is 46 inches. Chest is 20 inches. Waist is 18 inches. Hip is 21.5 inches. Shoulder is 14 inches. Sleeves is 22 inches.
+             ','fashion',3,5
+    		 ,2,5000,4500,12,50,0)
+   end
+    IF NOT EXISTS (SELECT * FROM products WHERE product_id =7)
+   BEGIN
+    INSERT dbo.products(product_id, product_name, description, type, sub_category_id, collection_id, category_id, price, sale, discount, stock, new)
+    values(7,'Branded Kurtis', N'Tailor stitched by Libaas Online.
+             Length is 46 inches. Chest is 20 inches. Waist is 18 inches. Hip is 21.5 inches. Shoulder is 14 inches. Sleeves is 22 inches.
+             ','fashion',2,6
+    		 ,2,5000,4500,12,50,0)
+   end
+
+ IF NOT EXISTS (SELECT * FROM products WHERE product_id =8)
+   BEGIN
+    INSERT dbo.products(product_id, product_name, description, type, sub_category_id, collection_id, category_id, price, sale, discount, stock, new)
+    values(8,'Branded Kurtis', N'Tailor stitched by Libaas Online.
+             Length is 46 inches. Chest is 20 inches. Waist is 18 inches. Hip is 21.5 inches. Shoulder is 14 inches. Sleeves is 22 inches.
+             ','fashion',1,1
+    		 ,2,5000,4500,12,50,0)
+   end
+   SET IDENTITY_INSERT dbo.products OFF
+
+
+ SET IDENTITY_INSERT dbo.images ON
+ IF NOT EXISTS (SELECT * FROM images WHERE image_id between 1 and 4)
+   BEGIN
+   insert into images(image_id, image_src, product_id, alt)
+   values(1,'E:\Projects\Client\Libaas Online\Project\Frontend\ShoppersDelight\src\assets\images\product\fashion\1\img1.jpeg',1,'1')
+   insert into images(image_id, image_src, product_id, alt)
+   values(2,'E:\Projects\Client\Libaas Online\Project\Frontend\ShoppersDelight\src\assets\images\product\fashion\1\img2.jpeg',1,'1')
+  insert into images(image_id, image_src, product_id, alt)
+   values(3,'E:\Projects\Client\Libaas Online\Project\Frontend\ShoppersDelight\src\assets\images\product\fashion\1\img3.jpeg',1,'1')
+   insert into images(image_id, image_src, product_id, alt)
+   values(4,'E:\Projects\Client\Libaas Online\Project\Frontend\ShoppersDelight\src\assets\images\product\fashion\1\img4.jpeg',1,'1')
+ end
+  IF NOT EXISTS (SELECT * FROM images WHERE image_id between 5 and 8)
+   BEGIN
+   insert into images(image_id, image_src, product_id, alt)
+   values(5,'E:\Projects\Client\Libaas Online\Project\Frontend\ShoppersDelight\src\assets\images\product\fashion\2\img1.jpeg',2,'1')
+   insert into images(image_id, image_src, product_id, alt)
+   values(6,'E:\Projects\Client\Libaas Online\Project\Frontend\ShoppersDelight\src\assets\images\product\fashion\2\img2.jpeg',2,'1')
+  insert into images(image_id, image_src, product_id, alt)
+   values(7,'E:\Projects\Client\Libaas Online\Project\Frontend\ShoppersDelight\src\assets\images\product\fashion\2\img3.jpeg',2,'1')
+   insert into images(image_id, image_src, product_id, alt)
+   values(8,'E:\Projects\Client\Libaas Online\Project\Frontend\ShoppersDelight\src\assets\images\product\fashion\2\img4.jpeg',2,'1')
+ end
+  IF NOT EXISTS (SELECT * FROM images WHERE image_id between 9 and 12)
+   BEGIN
+   insert into images(image_id, image_src, product_id, alt)
+   values(9,'E:\Projects\Client\Libaas Online\Project\Frontend\ShoppersDelight\src\assets\images\product\fashion\3\img1.jpeg',3,'1')
+   insert into images(image_id, image_src, product_id, alt)
+   values(10,'E:\Projects\Client\Libaas Online\Project\Frontend\ShoppersDelight\src\assets\images\product\fashion\3\img2.jpeg',3,'1')
+  insert into images(image_id, image_src, product_id, alt)
+   values(11,'E:\Projects\Client\Libaas Online\Project\Frontend\ShoppersDelight\src\assets\images\product\fashion\3\img3.jpeg',3,'1')
+   insert into images(image_id, image_src, product_id, alt)
+   values(12,'E:\Projects\Client\Libaas Online\Project\Frontend\ShoppersDelight\src\assets\images\product\fashion\3\img4.jpeg',3,'1')
+ end
+
+  IF NOT EXISTS (SELECT * FROM images WHERE image_id between 13 and 16 )
+   BEGIN
+   insert into images(image_id, image_src, product_id, alt)
+   values(13,'E:\Projects\Client\Libaas Online\Project\Frontend\ShoppersDelight\src\assets\images\product\fashion\5\img1.jpeg',5,'1')
+   insert into images(image_id, image_src, product_id, alt)
+   values(14,'E:\Projects\Client\Libaas Online\Project\Frontend\ShoppersDelight\src\assets\images\product\fashion\5\img2.jpeg',5,'1')
+  insert into images(image_id, image_src, product_id, alt)
+   values(15,'E:\Projects\Client\Libaas Online\Project\Frontend\ShoppersDelight\src\assets\images\product\fashion\5\img3.jpeg',5,'1')
+   insert into images(image_id, image_src, product_id, alt)
+   values(16,'E:\Projects\Client\Libaas Online\Project\Frontend\ShoppersDelight\src\assets\images\product\fashion\5\img4.jpeg',5,'1')
+ end
+
+  IF NOT EXISTS (SELECT * FROM images WHERE image_id between 17 and 20)
+   BEGIN
+   insert into images(image_id, image_src, product_id, alt)
+   values(17,'E:\Projects\Client\Libaas Online\Project\Frontend\ShoppersDelight\src\assets\images\product\fashion\4\img1.jpeg',4,'1')
+   insert into images(image_id, image_src, product_id, alt)
+   values(18,'E:\Projects\Client\Libaas Online\Project\Frontend\ShoppersDelight\src\assets\images\product\fashion\4\img2.jpeg',4,'1')
+  insert into images(image_id, image_src, product_id, alt)
+   values(19,'E:\Projects\Client\Libaas Online\Project\Frontend\ShoppersDelight\src\assets\images\product\fashion\4\img3.jpeg',4,'1')
+   insert into images(image_id, image_src, product_id, alt)
+   values(20,'E:\Projects\Client\Libaas Online\Project\Frontend\ShoppersDelight\src\assets\images\product\fashion\4\img4.jpeg',4,'1')
+ end
+  IF NOT EXISTS (SELECT * FROM images WHERE image_id between 21 and 24 )
+   BEGIN
+   insert into images(image_id, image_src, product_id, alt)
+   values(21,'E:\Projects\Client\Libaas Online\Project\Frontend\ShoppersDelight\src\assets\images\product\fashion\6\img1.jpeg',6,'1')
+   insert into images(image_id, image_src, product_id, alt)
+   values(22,'E:\Projects\Client\Libaas Online\Project\Frontend\ShoppersDelight\src\assets\images\product\fashion\6\img2.jpeg',6,'1')
+  insert into images(image_id, image_src, product_id, alt)
+   values(23,'E:\Projects\Client\Libaas Online\Project\Frontend\ShoppersDelight\src\assets\images\product\fashion\6\img3.jpeg',6,'1')
+   insert into images(image_id, image_src, product_id, alt)
+   values(24,'E:\Projects\Client\Libaas Online\Project\Frontend\ShoppersDelight\src\assets\images\product\fashion\6\img4.jpeg',6,'1')
+ end
+  IF NOT EXISTS (SELECT * FROM images WHERE image_id between 25 and 28)
+   BEGIN
+   insert into images(image_id, image_src, product_id, alt)
+   values(25,'E:\Projects\Client\Libaas Online\Project\Frontend\ShoppersDelight\src\assets\images\product\fashion\7\img1.jpeg',7,'1')
+   insert into images(image_id, image_src, product_id, alt)
+   values(26,'E:\Projects\Client\Libaas Online\Project\Frontend\ShoppersDelight\src\assets\images\product\fashion\7\img2.jpeg',7,'1')
+  insert into images(image_id, image_src, product_id, alt)
+   values(27,'E:\Projects\Client\Libaas Online\Project\Frontend\ShoppersDelight\src\assets\images\product\fashion\7\img3.jpeg',7,'1')
+   insert into images(image_id, image_src, product_id, alt)
+   values(28,'E:\Projects\Client\Libaas Online\Project\Frontend\ShoppersDelight\src\assets\images\product\fashion\7\img4.jpeg',7,'1')
+ end
+  IF NOT EXISTS (SELECT * FROM images WHERE image_id between 29 and 32)
+   BEGIN
+   insert into images(image_id, image_src, product_id, alt)
+   values(29,'E:\Projects\Client\Libaas Online\Project\Frontend\ShoppersDelight\src\assets\images\product\fashion\8\img1.jpeg',8,'1')
+   insert into images(image_id, image_src, product_id, alt)
+   values(30,'E:\Projects\Client\Libaas Online\Project\Frontend\ShoppersDelight\src\assets\images\product\fashion\8\img2.jpeg',8,'1')
+  insert into images(image_id, image_src, product_id, alt)
+   values(31,'E:\Projects\Client\Libaas Online\Project\Frontend\ShoppersDelight\src\assets\images\product\fashion\8\img3.jpeg',8,'1')
+   insert into images(image_id, image_src, product_id, alt)
+   values(32,'E:\Projects\Client\Libaas Online\Project\Frontend\ShoppersDelight\src\assets\images\product\fashion\8\img4.jpeg',8,'1')
+ end
+  SET IDENTITY_INSERT dbo.images OFF
+
+
+    SET IDENTITY_INSERT dbo.variants ON
+	 IF NOT EXISTS (SELECT * FROM variants WHERE variant_id between 1 and 3) 
+	 BEGIN
+	 insert into variants(variant_id, product_id, sku, size_id, color_id, image_id)
+	 values(1,1,'sku1',1,1,1)
+	  insert into variants(variant_id, product_id, sku, size_id, color_id, image_id)
+	 values(2,1,'sku1',2,2,2)
+	  insert into variants(variant_id, product_id, sku, size_id, color_id, image_id)
+	 values(3,1,'sku1',3,3,3)
+	 end
+	  IF NOT EXISTS (SELECT * FROM variants WHERE variant_id between 4 and 6) 
+	 BEGIN
+	 insert into variants(variant_id, product_id, sku, size_id, color_id, image_id)
+	 values(4,2,'sku1',1,1,6)
+	  insert into variants(variant_id, product_id, sku, size_id, color_id, image_id)
+	 values(5,2,'sku1',2,2,7)
+	  insert into variants(variant_id, product_id, sku, size_id, color_id, image_id)
+	 values(6,2,'sku1',3,3,8)
+	 end
+	   IF NOT EXISTS (SELECT * FROM variants WHERE variant_id between 7 and 9) 
+	 BEGIN
+	 insert into variants(variant_id, product_id, sku, size_id, color_id, image_id)
+	 values(7,3,'sku1',1,1,9)
+	  insert into variants(variant_id, product_id, sku, size_id, color_id, image_id)
+	 values(8,3,'sku1',2,2,10)
+	  insert into variants(variant_id, product_id, sku, size_id, color_id, image_id)
+	 values(9,3,'sku1',3,3,11)
+	 end
+	    IF NOT EXISTS (SELECT * FROM variants WHERE variant_id between 10 and 12) 
+	 BEGIN
+	 insert into variants(variant_id, product_id, sku, size_id, color_id, image_id)
+	 values(10,4,'sku1',1,1,13)
+	  insert into variants(variant_id, product_id, sku, size_id, color_id, image_id)
+	 values(11,4,'sku1',2,2,14)
+	  insert into variants(variant_id, product_id, sku, size_id, color_id, image_id)
+	 values(12,4,'sku1',3,3,15)
+	 end
+	    IF NOT EXISTS (SELECT * FROM variants WHERE variant_id between 13 and 15) 
+	 BEGIN
+	 insert into variants(variant_id, product_id, sku, size_id, color_id, image_id)
+	 values(13,5,'sku1',1,1,17)
+	  insert into variants(variant_id, product_id, sku, size_id, color_id, image_id)
+	 values(14,5,'sku1',2,2,18)
+	  insert into variants(variant_id, product_id, sku, size_id, color_id, image_id)
+	 values(15,5,'sku1',3,3,19)
+	 end 
+	 IF NOT EXISTS (SELECT * FROM variants WHERE variant_id between 16 and 18) 
+	 BEGIN
+	 insert into variants(variant_id, product_id, sku, size_id, color_id, image_id)
+	 values(16,6,'sku1',1,1,21)
+	  insert into variants(variant_id, product_id, sku, size_id, color_id, image_id)
+	 values(17,6,'sku1',2,2,22)
+	  insert into variants(variant_id, product_id, sku, size_id, color_id, image_id)
+	 values(18,6,'sku1',3,3,23)
+	 end
+	 IF NOT EXISTS (SELECT * FROM variants WHERE variant_id between 19 and 21) 
+	 BEGIN
+	 insert into variants(variant_id, product_id, sku, size_id, color_id, image_id)
+	 values(19,7,'sku1',1,1,25)
+	  insert into variants(variant_id, product_id, sku, size_id, color_id, image_id)
+	 values(20,7,'sku1',2,2,26)
+	  insert into variants(variant_id, product_id, sku, size_id, color_id, image_id)
+	 values(21,7,'sku1',3,3,27)
+	 end   IF NOT EXISTS (SELECT * FROM variants WHERE variant_id between 22 and 24) 
+	 BEGIN
+	 insert into variants(variant_id, product_id, sku, size_id, color_id, image_id)
+	 values(22,8,'sku1',1,1,29)
+	  insert into variants(variant_id, product_id, sku, size_id, color_id, image_id)
+	 values(23,8,'sku1',2,2,30)
+	  insert into variants(variant_id, product_id, sku, size_id, color_id, image_id)
+	 values(24,8,'sku1',3,3,31)
+	 end  
+   SET IDENTITY_INSERT dbo.variants OFF
