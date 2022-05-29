@@ -8,7 +8,8 @@ namespace Api.Application.Dto
     {
 
         public const string Product = "product";
-        public const string Category = "category";
+        public const string Category = "category"; 
+        public const string LookupValue = "lookup_value";
 
     }
 }

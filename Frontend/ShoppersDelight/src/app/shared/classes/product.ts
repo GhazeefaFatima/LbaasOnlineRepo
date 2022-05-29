@@ -16,7 +16,40 @@ export interface Product {
     tags?: any[];
     variants?: Variants[];
     images?: Images[];
+    image_src?: string;
 }
+
+
+
+export interface ProductList {
+    product_id?: any;
+    category_name?: string;
+    product_name?: string;
+    image_src?: string;
+    subcat_name?: string;
+    size_name?: string;
+    product_img? : string;
+    is_main_page?: boolean;
+    is_new_product?: boolean;
+    is_best_selling?: boolean;
+    is_featured_product?: boolean;
+    is_on_sale?: boolean;
+    price?: number;
+   description?: string;
+   product_image?: string
+   ProductDetail?: Image[];
+
+
+}
+export interface Image {
+   
+    image_src?: string;
+  
+}
+
+
+
+
 
 export interface Variants {
     variant_id?: number;

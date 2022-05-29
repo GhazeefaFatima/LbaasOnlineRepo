@@ -17,6 +17,8 @@ namespace Api.Application
 
             //services.AddScoped(typeof(IDefaultService<>), typeof(DefaultService<>));
             services.AddScoped<ICategoryService, CategoryService>();
+            services.AddScoped<IProductService, ProductService>();
+            services.AddScoped<ILookupValueService, LookupValueService>();
 
             return services;
         }
