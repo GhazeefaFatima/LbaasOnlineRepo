@@ -50,7 +50,7 @@ export class CollectionInfinitescrollComponent implements OnInit {
 
         // Get Filtered Products..
         this.productService.filterProducts(this.tags).subscribe(response => {
-
+debugger;
           // All Products
           this.all_products = response;
 

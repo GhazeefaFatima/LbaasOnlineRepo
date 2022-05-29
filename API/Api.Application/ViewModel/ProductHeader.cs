@@ -23,7 +23,7 @@ namespace Api.Application.ViewModel
         public string type { get; set; }
         public string brand { get; set; }
         public string collection { get; set; }
-        public string category { get; set; }
+        public string[] category { get; set; }
         public int price { get; set; }
         public int sale { get; set; }
         public int discount { get; set; }

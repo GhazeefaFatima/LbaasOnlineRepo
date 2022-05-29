@@ -15,16 +15,18 @@ export class FashionOneComponent implements OnInit {
   currentYear: number = new Date().getFullYear();
   constructor(public productService: ProductService) {
     this.productService.getProducts.subscribe(response => {
-
      debugger
+     console.log("dhDAGgdaFDdhg",response)
       this.products = response;
-    // console.log("dhDAGgdaFDdhg",this.products)
-     console.log("dghadjhffsdfjsdkgsgkjskg", this.products[2])
+    //  console.log("dhDAGgdaFDdhg",this.products)
+    //  console.log("dghadjhffsdfjsdkgsgkjskg", this.products[2])
      
       // Get Product Collection
       this.products.filter((item) => {
         item.collection.filter((collection) => {
+         
           const index = this.productCollections.indexOf(collection);
+          console.log(index);
           if (index === -1) this.productCollections.push(collection);
         })
       })

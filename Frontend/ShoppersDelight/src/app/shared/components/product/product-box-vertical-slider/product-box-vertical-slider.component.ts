@@ -18,8 +18,14 @@ export class ProductBoxVerticalSliderComponent implements OnInit {
   public NewProductSliderConfig: any = NewProductSlider;
 
   constructor(public productService: ProductService) { 
-    this.productService.getProducts.subscribe(response => 
+    debugger;
+    this.productService.getProducts.subscribe(response => {
+      debugger;
+console.log(response)
       this.products = response.filter(item => item.type == this.type)
+    }
+
+
     );
   }
 

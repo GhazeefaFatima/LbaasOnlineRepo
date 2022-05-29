@@ -98,22 +98,30 @@ namespace Api.Application.Implementation
         }
 
 
-        public IEnumerable<ProductList> GetAllProducts(int is_main_page, int is_new_product, int is_best_selling, int is_featured_product, int is_on_sale)
+        public List<pvm.ProductHeader> GetAllProducts()
         {
 
-            IEnumerable<ProductList> plist = _repo.GetAllProducts(is_main_page, is_new_product, is_best_selling, is_featured_product, is_on_sale).Result;
-            List<pvm.ProductHeader> res = null;
-            var gb = plist.GroupBy(x => new { id= x.product_id, varient_id=x.variant_id, image_is = x.image_id }). ToList();
-     //       var query = _customerRepo.Table
-     //.GroupBy(c => new { Date = c.Date.Date, Type = c.TypeOfCustomer })
-     //.Select(g => new
-     ////{
-     //    Date = g.Key.Date,
-     //    Type = g.Key.Type,
-     //    Count = g.Count
-     //}
-     //       )
-     //.OrderByDescending(r = r.Date);
+            IEnumerable<ProductList> plist = _repo.GetAllProducts().Result;
+            List<pvm.ProductHeader> res = new List<pvm.ProductHeader>();
+            var gb = plist.GroupBy(x => new { id= x.product_id}). ToList().Select(x=>x);
+            var pimg = plist.GroupBy(x => new { id = x.product_id, src = x.image_src , img_id = x.image_id, alt=x.alt }) .Select(g => new
+            {
+                id = g.Key.id,
+                src = g.Key.src,
+                image_id = g.Key.img_id,
+                alt=g.Key.alt,
+            }).ToList();
+            var pvar = plist.GroupBy(x => new { id = x.product_id, var_id = x.variant_id, size = x.size_name, color = x.color_name , img_id=x.var_img_id}).Select(g => new
+            {
+                id = g.Key.id,
+                var_id = g.Key.var_id,
+                size = g.Key.size,
+                color = g.Key.color,
+                img_id = g.Key.img_id,
+                sku = g.Key.img_id,
+            }).ToList();
+
+
             gb.ToList().ForEach(x =>
             {
                 var r = new pvm.ProductHeader();
@@ -123,27 +131,49 @@ namespace Api.Application.Implementation
                 r.type = x.FirstOrDefault().type;
                 r.brand = x.FirstOrDefault().subcategory_name;
                 r.collection = x.FirstOrDefault().collection_name;
-                r.category = x.FirstOrDefault().category_name;
+                //r.collection[0]=
+                //r.category[0] = x.FirstOrDefault().category_name;
                 r.price = x.FirstOrDefault().price;
                 r.sale = x.FirstOrDefault().sale;
                 r.discount = x.FirstOrDefault().discount;
                 r.stock = x.FirstOrDefault().stock;
                 r.isnew = x.FirstOrDefault().isnew;
                 r.tags = x.FirstOrDefault().tags;
-                x.ToList().ForEach(b =>
-                        {
-                            var detail = new pvm.Images(1);
 
-                            detail.src = b.image_src;
+                pimg.Where(y => y.id == r.id).ToList()
+                             .ForEach(i =>
+                        {
+                            var detail = new pvm.Images();
+
+                            detail.src = i.src;
+                            detail.id = i.id;
+                            detail.image_id = i.image_id;
+                            detail.alt = i.alt;
 
                             r.images.Add(detail);
 
                         }
 
                       );
+                pvar.Where(y => y.id == r.id).ToList()
+                            .ForEach(i =>
+                            {
+                                var detail = new pvm.Variants();     
+                                detail.variant_id = i.var_id;
+                                detail.id = i.id;
+                                detail.sku = "sku";
+                                detail.color = i.color;
+                                detail.size = i.size;
+                                detail.image_id = i.img_id;
+
+                                r.variants.Add(detail);
+
+                            }
+
+                     );
                 res.Add(r);
             });
-            return plist;
+            return res;
         }
 
 
