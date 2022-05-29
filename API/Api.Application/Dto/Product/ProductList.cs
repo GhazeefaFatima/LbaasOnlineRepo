@@ -25,6 +25,7 @@ namespace Api.Application.Dto.Product
         public string size_name { get; set; }
         public string color_name { get; set; }
         public int image_id { get; set; }
+        public int var_img_id { get; set; }
         public string alt { get; set; }
         public string image_src { get; set; }
         

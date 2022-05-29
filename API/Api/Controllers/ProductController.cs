@@ -1,8 +1,8 @@
 ﻿using Api.Application.Dto;
 using Api.Application.Dto.Product;
 using Api.Application.Interface;
+using Api.Application.ViewModel;
 using Api.Domain;
-using Api.ViewModel;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -21,10 +21,10 @@ namespace Api.Controllers
             _service = service;
         }
         [HttpGet]
-        public List<ProductHeader> Get(int is_main_page, int is_new_product, int is_best_selling, int is_featured_product, int is_on_sale)
+        public List<ProductHeader> Get()
         {
-            var rec= _service.GetAllProducts(is_main_page, is_new_product, is_best_selling, is_featured_product, is_on_sale);
-            var res = new List<ProductHeader>();
+            return _service.GetAllProducts();
+          //  var res = new List<ProductHeader>();
         //    var gb = rec.GroupBy(x => x.product_id).ToList();
         //    gb.ToList().ForEach(x =>
         //    {
@@ -56,7 +56,7 @@ namespace Api.Controllers
         //        );
         //        res.Add(r);
         //    });
-            return res;
+           // return res;
         }
     }
 

@@ -16,7 +16,7 @@ const state = {
   providedIn: 'root'
 })
 export class ProductService {
-  readonly APIUrl="https://localhost:44334/api/"
+  readonly APIUrl="https://localhost:44334/api/Product?is_main_page=1&is_new_product=1&is_best_selling=1&is_featured_product=1&is_on_sale=1"
 
   public Currency = { name: 'Dollar', currency: 'USD', price: 1 } // Default Currency
   public OpenCart: boolean = false;
@@ -33,10 +33,22 @@ export class ProductService {
 
   // Product
   private get products(): Observable<Product[]> {
-    this.Products = this.http.get<Product[]>('assets/data/products.json').pipe(map(data => data));
-    this.Products.subscribe(next => { localStorage['products'] = JSON.stringify(next) });
-    return this.Products = this.Products.pipe(startWith(JSON.parse(localStorage['products'] || '[]')));
+    //this.Products = this.http.get<Product[]>('assets/data/products.json').pipe(map(data => data));
+  //  this.Products = this.http.get<Product[]>('https://localhost:44334/api/Product').pipe(map(data => data));
+    this.Products = this.http.get<any>('https://localhost:44334/api/Product')
 
+   // this.Products.subscribe(next => { localStorage['products'] = JSON.stringify(next) });
+  //this.Products = this.Products.pipe(startWith(JSON.parse(localStorage['products'] || '[]')));
+  //   this.Products.subscribe(next => { localStorage['products'] = JSON.stringify(next) });
+  // this.Products = this.Products.pipe(startWith(JSON.parse(localStorage['products'] || '[]')));
+
+ // this.service.getAllProducts().subscribe(data=>{
+ //   this.ProductList     =data;
+    
+  //  console.log(data);
+ // });
+  console.log(this.Products);
+  return this.Products;
     // debugger;
     //return this.http.get<any>(this.APIUrl+"Product")
 
@@ -44,7 +56,7 @@ export class ProductService {
 
   // Get Products
   public get getProducts(): Observable<Product[]> {
-   // debugger
+   debugger
     return this.products;
   }
 
