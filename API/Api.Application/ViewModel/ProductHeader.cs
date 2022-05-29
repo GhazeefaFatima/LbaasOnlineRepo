@@ -22,14 +22,14 @@ namespace Api.Application.ViewModel
         public string description { get; set; }
         public string type { get; set; }
         public string brand { get; set; }
-        public string collection { get; set; }
-        public string[] category { get; set; }
+        public string[] collection { get; set; }
+        public string category { get; set; }
         public int price { get; set; }
         public int sale { get; set; }
         public int discount { get; set; }
         public int stock { get; set; }
         public bool isnew { get; set; }
-        public string tags { get; set; }
+        public string[] tags { get; set; }
        
         public List<Images> images { get; set; }
         public List<Variants> variants { get; set; }

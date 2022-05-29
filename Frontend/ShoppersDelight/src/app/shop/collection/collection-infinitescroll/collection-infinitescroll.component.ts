@@ -49,8 +49,34 @@ export class CollectionInfinitescrollComponent implements OnInit {
         this.sortBy = params.sortBy ? params.sortBy : 'ascending';
 
         // Get Filtered Products..
-        this.productService.filterProducts(this.tags).subscribe(response => {
-debugger;
+        //this.productService.filterProducts(this.tags).subscribe(response => {
+          if(this.tags)
+          {
+            this.productService.filterProducts(this.tags).subscribe(response => {
+
+              // All Products
+              this.all_products = response;
+    
+              // Sorting Filter
+              this.all_products = this.productService.sortProducts(response, this.sortBy);
+    
+              // Category Filter
+              if(params.category)
+                this.all_products = this.all_products.filter(item => item.type == this.category);
+    
+              // Price Filter
+              debugger;
+              if(this.minPrice&&this.maxPrice)
+                this.all_products = this.all_products.filter(item => item.price >= this.minPrice && item.price <= this.maxPrice)
+                //this.all_products = this.all_products.filter(item => item.price ===4500)
+        
+              this.addItems();
+              
+            })
+          }
+          else{
+              this.productService.getProducts.subscribe(response => {
+
           // All Products
           this.all_products = response;
 
@@ -62,11 +88,14 @@ debugger;
             this.all_products = this.all_products.filter(item => item.type == this.category);
 
           // Price Filter
-          this.all_products = this.all_products.filter(item => item.price >= this.minPrice && item.price <= this.maxPrice)
+          debugger;
+          if(this.minPrice&&this.maxPrice)
+            this.all_products = this.all_products.filter(item => item.price >= this.minPrice && item.price <= this.maxPrice)
+            //this.all_products = this.all_products.filter(item => item.price ===4500)
     
           this.addItems();
           
-        })
+        })}
       })
   }
 

@@ -37,11 +37,12 @@ export class ProductService {
   //  this.Products = this.http.get<Product[]>('https://localhost:44334/api/Product').pipe(map(data => data));
     this.Products = this.http.get<any>('https://localhost:44334/api/Product')
 
-   // this.Products.subscribe(next => { localStorage['products'] = JSON.stringify(next) });
-  //this.Products = this.Products.pipe(startWith(JSON.parse(localStorage['products'] || '[]')));
+    this.Products.subscribe(next => { localStorage['products'] = JSON.stringify(next) });
+  this.Products = this.Products.pipe(startWith(JSON.parse(localStorage['products'] || '[]')));
   //   this.Products.subscribe(next => { localStorage['products'] = JSON.stringify(next) });
   // this.Products = this.Products.pipe(startWith(JSON.parse(localStorage['products'] || '[]')));
 
+  debugger;
  // this.service.getAllProducts().subscribe(data=>{
  //   this.ProductList     =data;
     
@@ -235,10 +236,12 @@ export class ProductService {
 
   // Get Product Filter
   public filterProducts(filter: any): Observable<Product[]> {
+    debugger;
     return this.products.pipe(map(product => 
       product.filter((item: Product) => {
         if (!filter.length) return true
         const Tags = filter.some((prev) => { // Match Tags
+          debugger;
           if (item.tags) {
             if (item.tags.includes(prev)) {
               return prev

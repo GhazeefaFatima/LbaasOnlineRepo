@@ -120,7 +120,12 @@ namespace Api.Application.Implementation
                 img_id = g.Key.img_id,
                 sku = g.Key.img_id,
             }).ToList();
-
+            var img_var = plist.GroupBy(x => new { id = x.product_id, var_id = x.variant_id, img_id = x.var_img_id }).Select(g => new
+            {
+                id = g.Key.id,
+                var_id = g.Key.var_id,
+                img_id = g.Key.img_id
+            }).ToList();
 
             gb.ToList().ForEach(x =>
             {
@@ -130,15 +135,20 @@ namespace Api.Application.Implementation
                 r.description = x.FirstOrDefault().description;
                 r.type = x.FirstOrDefault().type;
                 r.brand = x.FirstOrDefault().subcategory_name;
-                r.collection = x.FirstOrDefault().collection_name;
+                r.collection = new string[1];
+                r.collection[0] = x.FirstOrDefault().collection_name;
+                //r.collection[0] = x.FirstOrDefault().collection_name;
                 //r.collection[0]=
-                //r.category[0] = x.FirstOrDefault().category_name;
+                r.category = x.FirstOrDefault().category_name;
                 r.price = x.FirstOrDefault().price;
                 r.sale = x.FirstOrDefault().sale;
                 r.discount = x.FirstOrDefault().discount;
                 r.stock = x.FirstOrDefault().stock;
                 r.isnew = x.FirstOrDefault().isnew;
-                r.tags = x.FirstOrDefault().tags;
+                r.tags = new string[3];
+                r.tags[0] = x.FirstOrDefault().category_name;
+                r.tags[1] = x.FirstOrDefault().size_name;
+                r.tags[2] = x.FirstOrDefault().color_name;
 
                 pimg.Where(y => y.id == r.id).ToList()
                              .ForEach(i =>
@@ -149,10 +159,18 @@ namespace Api.Application.Implementation
                             detail.id = i.id;
                             detail.image_id = i.image_id;
                             detail.alt = i.alt;
+                            detail.variant_id = new int[50];
+                            int c = 0;
+                            img_var.Where(z => z.img_id == detail.image_id && z.id == detail.id).ToList()
+                             .ForEach(a =>
+                             {
+                                 detail.variant_id[c] = a.var_id;
+                                 c++;
+                             });
 
-                            r.images.Add(detail);
-
-                        }
+                              r.images.Add(detail);
+                             }
+                      
 
                       );
                 pvar.Where(y => y.id == r.id).ToList()
